@@ -1,0 +1,35 @@
+{
+  "name": "gdapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "truffle migrate --reset",
+    "deploy:rinkeby": "truffle migrate --network rinkeby --reset",
+    "deploy:ropsten": "truffle migrate --network ropsten --reset",
+    "deploy:main": "truffle migrate --network mainnet --reset",
+    "console": "truffle console",
+    "test": "NODE_ENV=test truffle test --network development"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "truffle-hdwallet-provider-pkey": "0.0.7-beta.4",
+    "web3": "^1.0.0-beta.36",
+    "web3-utils": "^1.0.0-beta.46"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerjs/gdapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerjs/gdapp/issues"
+  },
+  "homepage": "https://github.com/nerjs/gdapp#readme"
+}
