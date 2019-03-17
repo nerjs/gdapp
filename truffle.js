@@ -8,17 +8,11 @@ const gasPrice = n => utils.toWei(n.toString(), 'gwei')
 
 module.exports = {
   contracts_directory: './contracts',
-  contracts_build_directory: "./output",
-  plugins: [ "truffle-analyze" ],
+  contracts_build_directory: "./build/contracts",
+  // plugins: [ "truffle-analyze" ],
   mocha: {
     useColors: true
   },
-  // solc: {
-  //   optimizer: {
-  //     enabled: true,
-  //     runs: 200
-  //   }
-  // },
   compilers: {
     // external: {
     //   command: "./compile-contracts",
@@ -35,9 +29,7 @@ module.exports = {
     //   }]
     // },
       solc: {
-          version: "0.5.0", // A version or constraint - Ex. "^0.5.0"
-                            // Can also be set to "native" to use a native solc
-          // docker: <boolean>, // Use a version obtained through docker
+          version: "0.5.0", 
           settings: {
             optimizer: {
               enabled: true,
