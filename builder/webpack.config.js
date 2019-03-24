@@ -24,6 +24,10 @@ const config = {
         publicPath: '/js/'
     },
     devtool: NODE_ENV == 'production' ? false : 'cheap-eval-source-map',
+    performance: {
+		maxEntrypointSize:1000000,
+        maxAssetSize: 1000000
+	},
     module: {
       rules: [
         {
