@@ -1,10 +1,10 @@
 const path = require('path')
 const fs = require('fs')
 require('colors')
-const jsonFormat = require('json-format');
+const _jsonFormat = require('json-format');
 const { getFiles, cleanDir } = require('./util_dirs')
 
-
+const jsonFormat = process.env.NODE_ENV == 'production' ? JSON.stringify : _jsonFormat;
 
 const checkDir = (from, to) => {
     let stat, dir;
@@ -27,12 +27,26 @@ const checkDir = (from, to) => {
 
 module.exports = (from, to) => {
     const contracts = checkDir(from, to)
+    const names = [],
+        allAbi = {}
     contracts.forEach(con => {
         const { abi, contractName } = require(path.join(from, con))
         fs.writeFileSync(
             path.join(to, `${contractName}.json`),
             jsonFormat(abi)
         )
+        names.push(contractName)
+        allAbi[contractName] = abi
     })
+
+    fs.writeFileSync(
+        path.join(to, 'names.json'),
+        jsonFormat(names)
+    )
+    fs.writeFileSync(
+        path.join(to, 'all_abi.json'),
+        jsonFormat(allAbi)
+    )
+
     console.log('contracts successfully copied'.green)
 }
