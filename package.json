@@ -4,24 +4,54 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:dev": "NODE_ENV=development webpack --config ./builder/webpack.config.js",
+    "build:prod": "NODE_ENV=production webpack --config ./builder/webpack.config.js",
+    "build:hot": "NODE_ENV=hot webpack --config ./builder/webpack.config.js",
+    "server:dev": "NODE_ENV=development node ./server",
+    "server:prod": "NODE_ENV=production node ./server",
+    "server:hot": "NODE_ENV=hot node ./server",
     "deploy": "truffle migrate --reset",
     "deploy:rinkeby": "truffle migrate --network rinkeby --reset",
     "deploy:ropsten": "truffle migrate --network ropsten --reset",
     "deploy:main": "truffle migrate --network mainnet --reset",
     "console": "truffle console",
+    "compile": "truffle compile",
     "test": "NODE_ENV=test truffle test --network development"
   },
   "directories": {
     "test": "test"
   },
   "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/polyfill": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0",
+    "body-parser": "^1.18.3",
     "colors": "^1.3.3",
     "dotenv": "^6.2.0",
+    "dotenv-webpack": "^1.7.0",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-hot-loader": "^4.8.0",
+    "react-icons": "^3.5.0",
+    "styled-components": "^4.2.0",
     "truffle-hdwallet-provider-privkey": "^1.0.3",
     "web3": "1.0.0-beta.36",
-    "web3-utils": "^1.0.0-beta.46"
+    "web3-utils": "^1.0.0-beta.50",
+    "webpack-dev-middleware": "^3.6.1",
+    "webpack-hot-middleware": "^2.24.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nerjs/gdapp.git"
