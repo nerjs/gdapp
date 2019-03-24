@@ -1,11 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const DotEnv = require('dotenv-webpack');
-const cleanDir = require('./clean_dir')
+const { cleanDir } = require('./util_dirs')
+const copyAbi = require('./copy_abi')
 
 
 const {
-    NODE_ENV='development'
+    NODE_ENV='development',
+    SERVER_SIDE=false
 } = process.env
 
 
@@ -78,8 +80,9 @@ if (NODE_ENV == 'hot') {
     
 }
 
-
-cleanDir(config.output.path)
-
+if (!SERVER_SIDE) {
+    cleanDir(config.output.path)
+    copyAbi(path.join(__dirname, '..', 'build', 'contracts'), path.join(__dirname, '..', 'build', 'abi'))
+}
 
 module.exports = config

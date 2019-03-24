@@ -32,6 +32,7 @@ app.use((req, res, next) => {
 
 
 if (process.env.NODE_ENV == 'hot') {
+	process.env.SERVER_SIDE = true;
 	const wConf = require('../builder/webpack.config')
 	const compiler = webpack(wConf)
 
