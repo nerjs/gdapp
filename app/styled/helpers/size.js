@@ -1,0 +1,1 @@
+export const parseSize = size => typeof size == 'number' ? `${size}px` : size

@@ -1,8 +1,13 @@
 import React from 'react'
+import { ApolloProvider } from "react-apollo";
 
+
+import apolloClient from './apollo'
 
 const Provider = ({ children }) => (
-    children
+    <ApolloProvider client={apolloClient}>
+        {children}
+    </ApolloProvider>
 )
 
 

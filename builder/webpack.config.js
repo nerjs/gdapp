@@ -61,7 +61,9 @@ const config = {
             build: path.join(__dirname, '..', 'build'),
             data: path.join(__dirname, '..', 'app', 'data'),
             routes: path.join(__dirname, '..', 'app', 'routes'),
-            styled: path.join(__dirname, '..', 'app', 'styled')
+            styled: path.join(__dirname, '..', 'app', 'styled'),
+            dc: path.join(__dirname, '..', 'app', 'd_components'),
+            c: path.join(__dirname, '..', 'app', 'components')
         }
     },
     watch: NODE_ENV != 'production'

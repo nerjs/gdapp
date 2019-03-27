@@ -1,0 +1,1 @@
+export { parseSize } from './size'
