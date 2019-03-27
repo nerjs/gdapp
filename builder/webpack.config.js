@@ -58,7 +58,10 @@ const config = {
     resolve: {
         alias: {
             icons : 'react-icons/lib',
-            build: path.join(__dirname, '..', 'build')
+            build: path.join(__dirname, '..', 'build'),
+            data: path.join(__dirname, '..', 'app', 'data'),
+            routes: path.join(__dirname, '..', 'app', 'routes'),
+            styled: path.join(__dirname, '..', 'app', 'styled')
         }
     },
     watch: NODE_ENV != 'production'
